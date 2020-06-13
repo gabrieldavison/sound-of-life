@@ -6,10 +6,14 @@ import {
   cellSize,
   gameActive,
 } from "./gameController.js";
+import { playStep } from "./soundController.js";
 
 let sequencerActive = false;
 let seqIntervalID;
-
+let sequencerSpeed = 1000;
+function updateSequencerSpeed(value) {
+  sequencerSpeed = value;
+}
 //step length in conway cells
 let stepLength = 10;
 
@@ -27,10 +31,10 @@ function displayStep(stepNumber) {
 function collectNotes(gameState, step) {
   let notes = [];
   //iterates through each of the 5 rows
-  for (let i = 0; i < gameState.length; i += 10) {
+  for (let i = 0; i < gameState.length; i += 5) {
     let noteCount = 0;
     //double for loop iterates through each 10*10 cell and counts the notes
-    for (let y = i; y < i + 10; y++) {
+    for (let y = i; y < i + 5; y++) {
       for (let x = step * stepLength; x < step * stepLength + stepLength; x++) {
         if (gameState[y][x] === 1) {
           noteCount += 1;
@@ -39,7 +43,7 @@ function collectNotes(gameState, step) {
     }
     notes.push(noteCount);
   }
-  console.log(notes);
+  playStep(notes);
 }
 
 function startSequencer() {
@@ -60,7 +64,7 @@ function startSequencer() {
       collectNotes(currentState, stepNumber);
     }
     stepNumber < 9 ? (stepNumber += 1) : (stepNumber = 0);
-  }, 1000);
+  }, sequencerSpeed);
 }
 
 function stopSequencer() {
@@ -69,4 +73,4 @@ function stopSequencer() {
   counterCtx.clearRect(0, 0, 1000, 100);
 }
 
-export { startSequencer, stopSequencer };
+export { startSequencer, stopSequencer, updateSequencerSpeed };

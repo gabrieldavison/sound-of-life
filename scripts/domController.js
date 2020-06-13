@@ -7,8 +7,11 @@ import {
   editCurrentState,
   clearState,
 } from "./gameController.js";
-import { startSequencer, stopSequencer } from "./sequencerController.js";
-// import * as Tone from "tone";
+import {
+  startSequencer,
+  stopSequencer,
+  updateSequencerSpeed,
+} from "./sequencerController.js";
 
 //Adds event listeneres to UI elements.
 
@@ -85,10 +88,20 @@ function setupEventListeners() {
     stopSequencer();
   });
 
-  // const startAudio = document.querySelector("#start-audio");
-  // startAudio.addEventListener("click", () => {
-  //   Tone.start();
-  // });
+  const startAudio = document.querySelector("#start-audio");
+  startAudio.addEventListener("click", async () => {
+    await Tone.start();
+    console.log("audio go go");
+  });
+
+  const sequencerSpeed = document.querySelector("#sequencer-speed");
+  sequencerSpeed.value = 1000;
+  sequencerSpeed.addEventListener("input", (e) => {
+    updateSequencerSpeed(e.target.value);
+  });
+  sequencerSpeed.addEventListener("change", (e) => {
+    updateSequencerSpeed(e.target.value);
+  });
 }
 
 export { setupEventListeners };
