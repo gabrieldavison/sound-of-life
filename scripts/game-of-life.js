@@ -17,7 +17,7 @@ function randomState(width, height) {
   for (let i = 0; i < board.length; i++) {
     for (let j = 0; j < board[i].length; j++) {
       let randomNumber = Math.random();
-      randomNumber < 0.5 ? (board[i][j] = 0) : (board[i][j] = 1);
+      randomNumber < 0.8 ? (board[i][j] = 0) : (board[i][j] = 1);
     }
   }
   return board;

@@ -101,4 +101,10 @@ export {
   editCurrentState,
   clearState,
   setupCanvas,
+  toRender,
+  currentState,
+  width,
+  height,
+  cellSize,
+  gameActive,
 };

@@ -7,6 +7,8 @@ import {
   editCurrentState,
   clearState,
 } from "./gameController.js";
+import { startSequencer, stopSequencer } from "./sequencerController.js";
+// import * as Tone from "tone";
 
 //Adds event listeneres to UI elements.
 
@@ -24,7 +26,7 @@ function setupEventListeners() {
     toggleStartStop();
   });
 
-  //toggles the visibility of start or stop button to sonly one is visible at a time
+  //toggles the visibility of start or stop button to so only one is visible at a time
   function toggleStartStop() {
     startButton.classList.toggle("hidden");
     stopButton.classList.toggle("hidden");
@@ -72,6 +74,21 @@ function setupEventListeners() {
   canvas.addEventListener("click", (e) => {
     editCurrentState(getMouseCoordinates(canvas, e));
   });
+
+  const startSeq = document.querySelector("#start-seq");
+  startSeq.addEventListener("click", () => {
+    startSequencer();
+  });
+
+  const stopSeq = document.querySelector("#stop-seq");
+  stopSeq.addEventListener("click", () => {
+    stopSequencer();
+  });
+
+  // const startAudio = document.querySelector("#start-audio");
+  // startAudio.addEventListener("click", () => {
+  //   Tone.start();
+  // });
 }
 
 export { setupEventListeners };

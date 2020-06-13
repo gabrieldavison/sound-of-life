@@ -1,0 +1,22 @@
+{
+  "name": "sound-of-life",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrieldavison/sound-of-life.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrieldavison/sound-of-life/issues"
+  },
+  "homepage": "https://github.com/gabrieldavison/sound-of-life#readme",
+  "dependencies": {
+    "tone": "^14.7.7"
+  }
+}
