@@ -1,0 +1,106 @@
+/* Uses border box for box sizing */
+html {
+  box-sizing: border-box;
+  font-family: "Courier New";
+  font-weight: bold;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  text-align: center;
+  background-color: rgb(51, 54, 49);
+  color: #41ff00;
+}
+
+/* Styles header */
+header {
+  margin-top: 4em;
+}
+pre {
+  font-size: 0.7em;
+}
+.more-info-container {
+  margin-right: 5em;
+  text-align: end;
+}
+.more-info-container a {
+  padding: 0.5em;
+  border: 1px solid #41ff00;
+}
+
+.more-info-container a:hover {
+  background-color: #41ff00;
+  color: rgb(81, 82, 80);
+}
+
+/* styles UI controls */
+button,
+input {
+  padding: 0.5em;
+  border: 0.5px dashed #88dd6c;
+  background-color: rgb(81, 82, 80);
+  color: #41ff00;
+  font-weight: bold;
+}
+
+/* removes spinner arrows from number inputs */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+input {
+  border: none;
+  background-color: rgb(81, 82, 80);
+  color: #41ff00;
+}
+
+#start-button,
+#stop-button {
+  width: 10em;
+}
+
+/* Styles game board */
+#game-canvas {
+  margin-top: 3em;
+  border: 1px #41ff00 solid;
+}
+
+/* Styles modal that contains further info */
+.modal {
+  position: fixed;
+  width: 50%;
+  top: 20%;
+  left: 25%;
+  margin: auto;
+  padding-bottom: 2em;
+  opacity: 0.6;
+  background-color: #41ff00;
+  color: rgb(81, 82, 80);
+}
+
+.close-container {
+  text-align: right;
+  margin-top: 1.5em;
+}
+.close-container a {
+  margin: 1.5em 1.5em 0 0;
+  padding: 0.5em;
+  border: 1px solid rgb(81, 82, 80);
+}
+#close-button:hover {
+  background-color: rgb(81, 82, 80);
+  color: #41ff00;
+}
+
+.hidden {
+  display: none;
+}

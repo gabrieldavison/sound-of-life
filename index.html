@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conway's Game of Life</title>
+    <link rel="stylesheet" href="/styles/normalize.css" />
+    <link rel="stylesheet" href="./styles/index.css" />
+  </head>
+  <body>
+    <div class="content">
+      <header>
+        <div class="more-info-container">
+          <a id="more-info">More Information</a>
+        </div>
+        <pre>
+______  ______   ______   _   _   _   ______  __    _  ' ______     ______   ______   _________   ______    ______   ______    _       _____  ______  ______ 
+| |     / |  | \ | |  \ \ | | | | | | | |  | | \ \  | |  / |        | | ____ | |  | | | | | | | \ | |       / |  | \ | |       | |       | |  | |     | |     
+| |     | |  | | | |  | | | | | | | | | |__| |  \_\_| |  '------.   | |  | | | |__| | | | | | | | | |----   | |  | | | |----   | |   _   | |  | |---- | |---- 
+|_|____ \_|__|_/ |_|  |_| |_|_|_|_|_/ |_|  |_|  ____|_|   ____|_/   |_|__|_| |_|  |_| |_| |_| |_| |_|____   \_|__|_/ |_|       |_|__|_| _|_|_ |_|     |_|____ 
+                                                                                                                                                              
+        </pre>
+      </header>
+      <div class="controls">
+        <button id="start-button">Start</button>
+        <button id="stop-button" class="hidden">Stop</button>
+        <button id="clear-button">Clear</button>
+        <button id="randomize-button">Randomize</button>
+        <label for="width-input">Width</label>
+        <input type="number" id="width-input" placeholder="Width" />
+        <label for="height-input">Height</label>
+        <input type="number" id="height-input" placeholder="Height" />
+      </div>
+      <canvas id="game-canvas"></canvas>
+
+      <div class="modal hidden">
+        <div class="close-container">
+          <a id="close-button">Close</a>
+        </div>
+        <h1>Conway's Game of Life</h1>
+        <p>
+          <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
+            >Conway's Game of Life</a
+          >
+          is a zero player game. A living cell is represented by a green square
+          on the board and a dead cell is represented by a black square. Each
+          round the state of a cell is decided by three simple rules.
+        </p>
+        <ol>
+          <li>Any cell with two or three live neighbours stays alive.</li>
+          <li>Any dead cell with three live neighbours comes to life.</li>
+          <li>
+            Any live cell with less than 2 live neighbours or more than three
+            becomes dies.
+          </li>
+        </ol>
+        <p>A cells neighbours are the 8 cells that surround it.</p>
+        <p>
+          Although the setup of the game is simple some extremely complex
+          patterns can be created. People have built some
+          <a
+            href="https://www.ics.uci.edu/~welling/teaching/271fall09/Turing-Machine-Life.pdf"
+            >impressive structures</a
+          >
+          with it. For loads more information on the game itself check out the
+          <a href="https://www.conwaylife.com/forums/">ConwayLife</a> forum.
+        </p>
+        <p>
+          To use this implementation of the game set the board to your desired
+          width and height using the number inputs. Then place your living cells
+          by clicking on the board. You may also want to place cells randomly
+          using the randomize button. When you are ready click the start button
+          to begin the game.
+        </p>
+      </div>
+    </div>
+    <script src="./scripts/script.js" type="module"></script>
+  </body>
+</html>
