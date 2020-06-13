@@ -47,28 +47,32 @@ function collectNotes(gameState, step) {
 }
 
 function startSequencer() {
-  console.log("start");
+  stopSequencer();
   sequencerActive = true;
   let stepNumber = 0;
 
-  //first iteration of sequencer loop needs to happen immediately before timed loop begins.
-  displayStep(stepNumber);
-  collectNotes(currentState, stepNumber);
-  stepNumber += 1;
-
-  seqIntervalID = setInterval(() => {
+  //runs the noteloop at interval = sequencer speed
+  (function repeat() {
+    //exit loop if sequencer has been stopped
+    if ((sequencerActive = false)) {
+      return;
+    }
+    //displays current step
     displayStep(stepNumber);
+    //chooses which state to laod notes from
     if (gameActive === true) {
       collectNotes(toRender, stepNumber);
     } else {
       collectNotes(currentState, stepNumber);
     }
     stepNumber < 9 ? (stepNumber += 1) : (stepNumber = 0);
-  }, sequencerSpeed);
+    //loop calls itself recursively so that sequencerSpeed can be changed without stopping the sequencer and restarting
+    seqIntervalID = setTimeout(repeat, sequencerSpeed);
+  })();
 }
 
 function stopSequencer() {
-  console.log("stop");
+  sequencerActive = false;
   clearInterval(seqIntervalID);
   counterCtx.clearRect(0, 0, 1000, 100);
 }
