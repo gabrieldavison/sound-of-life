@@ -11,23 +11,12 @@ function updateSequencerSpeed(value) {
 //step length in conway cells
 let stepLength = 10;
 
-// const stepCounter = document.querySelector("#sequencer-canvas");
-// const counterCtx = stepCounter.getContext("2d");
-// counterCtx.canvas.width = width * stepLength;
-// counterCtx.canvas.height = 100;
-
-// function displayStep(stepNumber) {
-//   counterCtx.clearRect(0, 0, 1000, 100);
-//   counterCtx.fillStyle = "#41FF00";
-//   counterCtx.fillRect(stepNumber * 100, 100, 100, -100);
-// }
-
+//collects all active cells in a step and counts them, these are passed on to playStep
 function collectNotes(gameState, step) {
   let notes = [];
-  //iterates through each of the 5 rows
   for (let i = 0; i < gameState.length; i += 5) {
     let noteCount = 0;
-    //double for loop iterates through each 10*10 cell and counts the notes
+    //iterates through each 10*10 cell and counts the number of active cells
     for (let y = i; y < i + 5; y++) {
       for (let x = step * stepLength; x < step * stepLength + stepLength; x++) {
         if (gameState[y][x] === 1) {

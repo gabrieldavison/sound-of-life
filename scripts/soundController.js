@@ -35,7 +35,6 @@ function updateModIndex(value) {
 
 function playStep(notes) {
   const noteIndex = notes.indexOf(Math.max(...notes));
-
   synth.triggerAttackRelease(scale[noteIndex], "10n");
 }
 

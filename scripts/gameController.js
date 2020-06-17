@@ -11,7 +11,7 @@ let height = 50;
 //current state of board when the game is not active
 let currentState = deadState(width, height);
 
-//next state to of board be rendered when game is active
+//next state to of board that will be rendered when game is active
 let toRender;
 
 //Speed the game runs at in ms
