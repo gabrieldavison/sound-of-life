@@ -1,23 +1,12 @@
-//Renders the board to console
-//Warning! causes browser to slow down
-function renderConsole(board) {
-  let string = "";
-  for (let i = 0; i < board.length; i++) {
-    string += "|";
-    for (let j = 0; j < board[i].length; j++) {
-      board[i][j] === 1 ? (string += "#") : (string += " ");
-    }
-    string += "|\n";
-  }
-  console.log(string);
-}
+import { width } from "./gameController.js";
+import { stepLength } from "./sequencerController.js";
 
 const canvas = document.getElementById("game-canvas");
 const ctx = canvas.getContext("2d");
 
-function drawCanvas(width, height) {
-  ctx.canvas.width = width;
-  ctx.canvas.height = height;
+function drawCanvas(canvasWidth, canvasHeight) {
+  ctx.canvas.width = canvasWidth;
+  ctx.canvas.height = canvasHeight;
 }
 
 //Renders game to html5 canvas
@@ -37,4 +26,20 @@ function renderStateToCanvas(state, cellSize) {
     }
   }
 }
-export { renderStateToCanvas, drawCanvas };
+
+const stepCounter = document.querySelector("#sequencer-canvas");
+const counterCtx = stepCounter.getContext("2d");
+counterCtx.canvas.width = 100 * stepLength;
+counterCtx.canvas.height = 100;
+
+function displayStep(stepNumber) {
+  counterCtx.clearRect(0, 0, 1000, 100);
+  counterCtx.fillStyle = "#41FF00";
+  counterCtx.fillRect(stepNumber * 100, 100, 100, -100);
+}
+
+function clearSequencerCanvas() {
+  counterCtx.clearRect(0, 0, 1000, 100);
+}
+
+export { renderStateToCanvas, drawCanvas, displayStep, clearSequencerCanvas };

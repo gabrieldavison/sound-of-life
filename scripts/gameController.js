@@ -1,5 +1,5 @@
 import { randomState, nextState, deadState } from "./game-of-life.js";
-import { renderStateToCanvas, drawCanvas } from "./render.js";
+import { renderStateToCanvas } from "./render.js";
 
 //size of each cell on canvas in px
 let cellSize = 10;

@@ -1,5 +1,6 @@
 import { toRender, currentState, width, gameActive } from "./gameController.js";
 import { playStep } from "./soundController.js";
+import { displayStep, clearSequencerCanvas } from "./render.js";
 
 let sequencerActive = false;
 let seqIntervalID;
@@ -10,16 +11,16 @@ function updateSequencerSpeed(value) {
 //step length in conway cells
 let stepLength = 10;
 
-const stepCounter = document.querySelector("#sequencer-canvas");
-const counterCtx = stepCounter.getContext("2d");
-counterCtx.canvas.width = width * stepLength;
-counterCtx.canvas.height = 100;
+// const stepCounter = document.querySelector("#sequencer-canvas");
+// const counterCtx = stepCounter.getContext("2d");
+// counterCtx.canvas.width = width * stepLength;
+// counterCtx.canvas.height = 100;
 
-function displayStep(stepNumber) {
-  counterCtx.clearRect(0, 0, 1000, 100);
-  counterCtx.fillStyle = "#41FF00";
-  counterCtx.fillRect(stepNumber * 100, 100, 100, -100);
-}
+// function displayStep(stepNumber) {
+//   counterCtx.clearRect(0, 0, 1000, 100);
+//   counterCtx.fillStyle = "#41FF00";
+//   counterCtx.fillRect(stepNumber * 100, 100, 100, -100);
+// }
 
 function collectNotes(gameState, step) {
   let notes = [];
@@ -67,7 +68,7 @@ function startSequencer() {
 function stopSequencer() {
   sequencerActive = false;
   clearInterval(seqIntervalID);
-  counterCtx.clearRect(0, 0, 1000, 100);
+  clearSequencerCanvas();
 }
 
-export { startSequencer, stopSequencer, updateSequencerSpeed };
+export { startSequencer, stopSequencer, updateSequencerSpeed, stepLength };
