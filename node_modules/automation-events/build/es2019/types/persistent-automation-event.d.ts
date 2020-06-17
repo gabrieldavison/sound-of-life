@@ -1,3 +1,0 @@
-import { IExtendedExponentialRampToValueAutomationEvent, IExtendedLinearRampToValueAutomationEvent, ISetTargetAutomationEvent, ISetValueAutomationEvent, ISetValueCurveAutomationEvent } from '../interfaces';
-export declare type TPersistentAutomationEvent = IExtendedExponentialRampToValueAutomationEvent | IExtendedLinearRampToValueAutomationEvent | ISetTargetAutomationEvent | ISetValueAutomationEvent | ISetValueCurveAutomationEvent;
-//# sourceMappingURL=/build/es2019/types/persistent-automation-event.d.ts.map

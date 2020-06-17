@@ -1,1 +1,0 @@
-//# sourceMappingURL=/build/es2019/interfaces/periodic-wave-options.js.map

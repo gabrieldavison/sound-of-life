@@ -1,1 +1,0 @@
-//# sourceMappingURL=/build/es2019/types/native-dynamics-compressor-node.js.map

@@ -1,3 +1,0 @@
-import { TNativeAudioBufferSourceNode, TNativeConstantSourceNode, TNativeOscillatorNode } from '../types';
-export declare const wrapAudioScheduledSourceNodeStartMethodNegativeParameters: (nativeAudioScheduledSourceNode: TNativeAudioBufferSourceNode | TNativeConstantSourceNode | TNativeOscillatorNode) => void;
-//# sourceMappingURL=/build/es2019/helpers/wrap-audio-scheduled-source-node-start-method-negative-parameters.d.ts.map

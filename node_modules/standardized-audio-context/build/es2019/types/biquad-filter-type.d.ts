@@ -1,2 +1,0 @@
-export declare type TBiquadFilterType = 'allpass' | 'bandpass' | 'highpass' | 'highshelf' | 'lowpass' | 'lowshelf' | 'notch' | 'peaking';
-//# sourceMappingURL=/build/es2019/types/biquad-filter-type.d.ts.map

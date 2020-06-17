@@ -1,1 +1,0 @@
-//# sourceMappingURL=/build/es2019/types/distance-model-type.js.map

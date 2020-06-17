@@ -1,3 +1,0 @@
-import { TTestMediaStreamAudioSourceNodeMediaStreamWithoutAudioTrackSupportFactory } from '../types';
-export declare const createTestMediaStreamAudioSourceNodeMediaStreamWithoutAudioTrackSupport: TTestMediaStreamAudioSourceNodeMediaStreamWithoutAudioTrackSupportFactory;
-//# sourceMappingURL=/build/es2019/factories/test-media-stream-audio-source-node-media-stream-without-audio-track-support.d.ts.map

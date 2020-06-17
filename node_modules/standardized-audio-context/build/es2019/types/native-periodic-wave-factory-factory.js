@@ -1,1 +1,0 @@
-//# sourceMappingURL=/build/es2019/types/native-periodic-wave-factory-factory.js.map
