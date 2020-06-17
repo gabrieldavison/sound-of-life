@@ -66,7 +66,7 @@ function startSequencer() {
       collectNotes(currentState, stepNumber);
     }
     stepNumber < 9 ? (stepNumber += 1) : (stepNumber = 0);
-    //loop calls itself recursively so that sequencerSpeed can be changed without stopping the sequencer and restarting
+    //Loop calls itself recursively so that sequencerSpeed can be checked for changes each iteration
     seqIntervalID = setTimeout(repeat, sequencerSpeed);
   })();
 }

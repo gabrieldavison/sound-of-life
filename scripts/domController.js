@@ -12,6 +12,12 @@ import {
   stopSequencer,
   updateSequencerSpeed,
 } from "./sequencerController.js";
+import {
+  updateModIndex,
+  updateAttack,
+  updateRelease,
+  updateHarmonicity,
+} from "./soundController.js";
 
 //Adds event listeneres to UI elements.
 
@@ -101,6 +107,26 @@ function setupEventListeners() {
   });
   sequencerSpeed.addEventListener("change", (e) => {
     updateSequencerSpeed(e.target.value);
+  });
+
+  const attack = document.querySelector("#attack");
+  attack.addEventListener("input", (e) => {
+    updateAttack(e.target.value);
+  });
+
+  const release = document.querySelector("#release");
+  release.addEventListener("input", (e) => {
+    updateRelease(e.target.value);
+  });
+
+  const harmonicity = document.querySelector("#harmonicity");
+  harmonicity.addEventListener("input", (e) => {
+    updateHarmonicity(e.target.value);
+  });
+
+  const modIndex = document.querySelector("#mod-index");
+  modIndex.addEventListener("input", (e) => {
+    updateModIndex(e.target.value);
   });
 }
 
