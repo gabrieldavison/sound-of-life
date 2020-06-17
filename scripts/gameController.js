@@ -4,23 +4,21 @@ import { renderStateToCanvas, drawCanvas } from "./render.js";
 //size of each cell on canvas in px
 let cellSize = 10;
 
+//width and height of canvas in cells
 let width = 100;
-function updateWidth(value) {
-  width = value;
-  //clears state and draws new black canvas
-  clearState();
-  drawCanvas(width * 10, height * 10);
-}
-
 let height = 50;
-function updateHeight(value) {
-  height = value;
-  clearState();
-  drawCanvas(width * 10, height * 10);
-}
 
-//current state of game when the game is not active
+//current state of board when the game is not active
 let currentState = deadState(width, height);
+
+//next state to of board be rendered when game is active
+let toRender;
+
+//Speed the game runs at in ms
+let gameSpeed = 100;
+function updateGameSpeed(value) {
+  gameSpeed = value;
+}
 
 function randomizeCurrentState() {
   //if game is active randomizes toRender otherwise randomizes currentState
@@ -32,8 +30,8 @@ function randomizeCurrentState() {
   }
 }
 
-//edits current state when manually placing cells
-function editCurrentState(coord) {
+//edits the state of the board when manually placing cells
+function editState(coord) {
   let stateToEdit;
   //decides whether to edit toRender if game is active or currentState if game is not active
   gameActive ? (stateToEdit = toRender) : (stateToEdit = currentState);
@@ -48,7 +46,7 @@ function editCurrentState(coord) {
   }
 }
 
-//clears current state or toRender depending on whether game is active
+//resets the board to a state where no cells are active
 function clearState() {
   if (gameActive) {
     toRender = deadState(width, height);
@@ -62,24 +60,29 @@ function clearState() {
 //used for stopping / starting game interval
 let intervalID;
 
-//next state to be rendered
-let toRender;
-
-//whether the game is active or not
 let gameActive = false;
 
 function startGame() {
+  stopGame();
   gameActive = true;
   toRender = currentState;
-  intervalID = setInterval(() => {
+
+  //IIFE that repeatedly advances the game by one turn until gameActive = false
+  (function repeat() {
+    if (gameActive === false) {
+      return;
+    }
     renderStateToCanvas(toRender, cellSize);
     toRender = nextState(toRender);
-  }, 100);
+    //repeat calls itself until gameActive is false
+    //this way gamespeed can be updated without stopping/starting game
+    intervalID = setTimeout(repeat, gameSpeed);
+  })();
 }
 
 function stopGame() {
   if (gameActive) {
-    //stores state that will next be rendered so  canvas does not revert to whatever was stored in currentState before the game was started
+    //currentState = toRender so that canvas does not revert to what was stored in currentState before the game was started
     currentState = toRender;
   }
   clearInterval(intervalID);
@@ -88,6 +91,7 @@ function stopGame() {
   gameActive = false;
 }
 
+//Used to first render canvas when page loads
 function setupCanvas() {
   renderStateToCanvas(currentState, cellSize);
 }
@@ -95,16 +99,13 @@ function setupCanvas() {
 export {
   startGame,
   stopGame,
-  updateWidth,
-  updateHeight,
   randomizeCurrentState,
-  editCurrentState,
+  editState,
+  updateGameSpeed,
   clearState,
   setupCanvas,
   toRender,
   currentState,
   width,
-  height,
-  cellSize,
   gameActive,
 };

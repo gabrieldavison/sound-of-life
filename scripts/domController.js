@@ -1,11 +1,10 @@
 import {
   startGame,
   stopGame,
-  updateWidth,
-  updateHeight,
   randomizeCurrentState,
-  editCurrentState,
+  editState,
   clearState,
+  updateGameSpeed,
 } from "./gameController.js";
 import {
   startSequencer,
@@ -51,23 +50,13 @@ function setupEventListeners() {
     clearState();
   });
 
-  const widthInput = document.querySelector("#width-input");
-  widthInput.value = 100;
-  //both even listeners necessary to that width updates while typing and when the input loses focus
-  widthInput.addEventListener("input", (e) => {
-    updateWidth(e.target.value);
+  const gameSpeed = document.querySelector("#game-speed");
+  gameSpeed.value = 100;
+  gameSpeed.addEventListener("input", (e) => {
+    updateGameSpeed(e.target.value);
   });
-  widthInput.addEventListener("change", (e) => {
-    updateWidth(e.target.value);
-  });
-
-  const heightInput = document.querySelector("#height-input");
-  heightInput.value = 50;
-  heightInput.addEventListener("input", (e) => {
-    updateHeight(e.target.value);
-  });
-  heightInput.addEventListener("change", (e) => {
-    updateHeight(e.target.value);
+  gameSpeed.addEventListener("change", (e) => {
+    updateGameSpeed(e.target.value);
   });
 
   //Gets coordinates of each click on canvas and returns them rounded down to nearest 10
@@ -81,7 +70,7 @@ function setupEventListeners() {
   //event listener for placing cells with mouse
   const canvas = document.querySelector("#game-canvas");
   canvas.addEventListener("click", (e) => {
-    editCurrentState(getMouseCoordinates(canvas, e));
+    editState(getMouseCoordinates(canvas, e));
   });
 
   const startSeq = document.querySelector("#start-seq");

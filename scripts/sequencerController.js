@@ -1,11 +1,4 @@
-import {
-  toRender,
-  currentState,
-  width,
-  height,
-  cellSize,
-  gameActive,
-} from "./gameController.js";
+import { toRender, currentState, width, gameActive } from "./gameController.js";
 import { playStep } from "./soundController.js";
 
 let sequencerActive = false;
