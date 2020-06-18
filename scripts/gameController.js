@@ -17,7 +17,7 @@ let toRender;
 //Speed the game runs at in ms
 let gameSpeed = 100;
 function updateGameSpeed(value) {
-  gameSpeed = value;
+  value < 10 ? (gameSpeed = 10) : (gameSpeed = value);
 }
 
 function randomizeCurrentState() {

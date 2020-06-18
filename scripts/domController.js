@@ -10,12 +10,14 @@ import {
   startSequencer,
   stopSequencer,
   updateSequencerSpeed,
-} from "./sequencerController.js";
+} from "./sequencer.js";
 import {
   updateModIndex,
   updateAttack,
   updateRelease,
   updateHarmonicity,
+  updateDelayTime,
+  updateFeedback,
 } from "./soundController.js";
 
 //Adds event listeneres to UI elements.
@@ -69,8 +71,34 @@ function setupEventListeners() {
 
   //event listener for placing cells with mouse
   const canvas = document.querySelector("#game-canvas");
-  canvas.addEventListener("click", (e) => {
+
+  let isHeld = false;
+  //Used to stop undesired duplicate messages
+  let lastCoord;
+  canvas.addEventListener("mousedown", (e) => {
     editState(getMouseCoordinates(canvas, e));
+    lastCoord = getMouseCoordinates(canvas, e);
+    isHeld = true;
+  });
+
+  canvas.addEventListener("mousemove", (e) => {
+    if (
+      isHeld === true &&
+      lastCoord.toString() !== getMouseCoordinates(canvas, e).toString()
+    ) {
+      lastCoord = getMouseCoordinates(canvas, e);
+      editState(getMouseCoordinates(canvas, e));
+    }
+  });
+
+  canvas.addEventListener("mouseup", (e) => {
+    if (
+      isHeld === true &&
+      lastCoord.toString() !== getMouseCoordinates(canvas, e).toString()
+    ) {
+      editState(getMouseCoordinates(canvas, e));
+    }
+    isHeld = false;
   });
 
   const startSeq = document.querySelector("#start-seq");
@@ -98,6 +126,7 @@ function setupEventListeners() {
     updateSequencerSpeed(e.target.value);
   });
 
+  //Event listeners for synthesizer controls
   const attack = document.querySelector("#attack");
   attack.addEventListener("input", (e) => {
     updateAttack(e.target.value);
@@ -116,6 +145,16 @@ function setupEventListeners() {
   const modIndex = document.querySelector("#mod-index");
   modIndex.addEventListener("input", (e) => {
     updateModIndex(e.target.value);
+  });
+
+  const delayTime = document.querySelector("#delay-time");
+  delayTime.addEventListener("input", (e) => {
+    updateDelayTime(e.target.value);
+  });
+
+  const feedback = document.querySelector("#feedback");
+  feedback.addEventListener("input", (e) => {
+    updateFeedback(e.target.value);
   });
 }
 

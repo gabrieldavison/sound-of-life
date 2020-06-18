@@ -1,5 +1,4 @@
-import { width } from "./gameController.js";
-import { stepLength } from "./sequencerController.js";
+import { stepLength } from "./sequencer.js";
 
 const canvas = document.getElementById("game-canvas");
 const ctx = canvas.getContext("2d");

@@ -33,6 +33,15 @@ function updateModIndex(value) {
   synth.set({ modulationIndex: [value] });
 }
 
+//Delay Controls
+function updateDelayTime(value) {
+  delay.delayTime.value = value;
+}
+
+function updateFeedback(value) {
+  delay.feedback.value = value;
+}
+
 function playStep(notes) {
   const noteIndex = notes.indexOf(Math.max(...notes));
   synth.triggerAttackRelease(scale[noteIndex], "10n");
@@ -44,4 +53,6 @@ export {
   updateAttack,
   updateRelease,
   updateHarmonicity,
+  updateDelayTime,
+  updateFeedback,
 };

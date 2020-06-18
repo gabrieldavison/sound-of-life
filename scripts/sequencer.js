@@ -6,7 +6,7 @@ let sequencerActive = false;
 let seqIntervalID;
 let sequencerSpeed = 1000;
 function updateSequencerSpeed(value) {
-  sequencerSpeed = value;
+  value < 10 ? (sequencerSpeed = 10) : (sequencerSpeed = value);
 }
 //step length in conway cells
 let stepLength = 10;
