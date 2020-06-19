@@ -18,6 +18,7 @@ import {
   updateHarmonicity,
   updateDelayTime,
   updateFeedback,
+  changeScale,
 } from "./soundController.js";
 
 //Adds event listeneres to UI elements.
@@ -124,6 +125,11 @@ function setupEventListeners() {
   });
   sequencerSpeed.addEventListener("change", (e) => {
     updateSequencerSpeed(e.target.value);
+  });
+
+  const scale = document.querySelector("#scale");
+  scale.addEventListener("change", (e) => {
+    changeScale(e.target.value);
   });
 
   //Event listeners for synthesizer controls

@@ -1,4 +1,15 @@
-const scale = ["C4", "E4", "F#4", "A4", "B4", "C5", "E5", "F#5", "A5", "B5"];
+const scaleOptions = [
+  ["C4", "E4", "F#4", "A4", "B4", "C5", "E5", "F#5", "A5", "B5"],
+  ["C4", "D4", "E4", "G4", "A4", "C5", "D5", "E5", "G5", "A5"],
+  ["C4", "D4", "Eb4", "G4", "Bb4", "C5", "D5", "Eb5", "G5", "Bb5"],
+  ["C4", "D4", "D#4", "G4", "B4", "C5", "D5", "D#5", "G5", "B5"],
+  ["C4", "C#4", "E4", "G4", "B4", "C5", "C#5", "E5", "G5", "B5"],
+];
+let scale = ["C4", "E4", "F#4", "A4", "B4", "C5", "E5", "F#5", "A5", "B5"];
+function changeScale(number) {
+  scale = scaleOptions[parseInt(number)];
+  console.log(scale);
+}
 
 const synth = new Tone.PolySynth(4, Tone.FMSynth, {
   modulationIndex: 10,
@@ -9,13 +20,11 @@ const synth = new Tone.PolySynth(4, Tone.FMSynth, {
   },
 });
 
-var limiter = new Tone.Limiter(-3).toMaster();
+var limiter = new Tone.Limiter(-5).toMaster();
 var delay = new Tone.FeedbackDelay("8n", 0.9).connect(limiter);
 
 synth.connect(delay);
-function isNumber(value) {
-  return typeof value === "number" && isFinite(value);
-}
+
 //Synthesizer Controls
 function updateAttack(value) {
   const floatValue = parseFloat(value);
@@ -55,4 +64,5 @@ export {
   updateHarmonicity,
   updateDelayTime,
   updateFeedback,
+  changeScale,
 };
