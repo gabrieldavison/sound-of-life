@@ -1,15 +1,11 @@
 import { randomState, nextState, deadState } from "./game-of-life.js";
 import { renderStateToCanvas } from "./render.js";
+import { GameBoard } from "./GameBoard.js"
 
-//size of each cell on canvas in px
-let cellSize = 10;
-
-//width and height of canvas in cells
-let width = 100;
-let height = 50;
+const board = new GameBoard(10, 100, 50)
 
 //current state of board when the game is not active
-let currentState = deadState(width, height);
+let currentState = deadState(board.width, board.height);
 
 //next state to of board that will be rendered when game is active
 let toRender;
@@ -23,10 +19,10 @@ function updateGameSpeed(value) {
 function randomizeCurrentState() {
   //if game is active randomizes toRender otherwise randomizes currentState
   if (gameActive) {
-    toRender = randomState(width, height);
+    toRender = randomState(board.width, board.height);
   } else {
-    currentState = randomState(width, height);
-    renderStateToCanvas(currentState, cellSize);
+    currentState = randomState(board.width, board.height);
+    renderStateToCanvas(currentState, board.cellSize);
   }
 }
 
@@ -42,19 +38,19 @@ function editState(coord) {
     stateToEdit[coord[1]][coord[0]] = 0;
   }
   if (gameActive === false) {
-    renderStateToCanvas(currentState, cellSize);
+    renderStateToCanvas(currentState, board.cellSize);
   }
 }
 
 //resets the board to a state where no cells are active
 function clearState() {
   if (gameActive) {
-    toRender = deadState(width, height);
+    toRender = deadState(board.width, board.height);
   } else {
-    currentState = deadState(width, height);
+    currentState = deadState(board.width, board.height);
   }
 
-  renderStateToCanvas(currentState, cellSize);
+  renderStateToCanvas(currentState, board.cellSize);
 }
 
 let gameActive = false;
@@ -72,7 +68,7 @@ function startGame() {
     if (gameActive === false) {
       return;
     }
-    renderStateToCanvas(toRender, cellSize);
+    renderStateToCanvas(toRender, board.cellSize);
     toRender = nextState(toRender);
     //repeat calls itself until gameActive is false
     //this way gamespeed can be updated without stopping/starting game
@@ -87,14 +83,16 @@ function stopGame() {
   }
   clearInterval(intervalID);
 
-  renderStateToCanvas(currentState, cellSize);
+  renderStateToCanvas(currentState, board.cellSize);
   gameActive = false;
 }
 
 //Used to first render canvas when page loads
 function setupCanvas() {
-  renderStateToCanvas(currentState, cellSize);
+  renderStateToCanvas(currentState, board.cellSize);
 }
+
+
 
 export {
   startGame,
@@ -106,6 +104,5 @@ export {
   setupCanvas,
   toRender,
   currentState,
-  width,
   gameActive,
 };
