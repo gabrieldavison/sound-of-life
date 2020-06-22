@@ -1,8 +1,8 @@
 import {
   startGame,
   stopGame,
-  randomizeCurrentState,
-  editState,
+  randomizeGame,
+  placeCell,
   clearState,
   updateGameSpeed,
 } from "./gameController.js";
@@ -45,7 +45,7 @@ function setupEventListeners() {
 
   const randomizeButton = document.querySelector("#randomize-button");
   randomizeButton.addEventListener("click", () => {
-    randomizeCurrentState();
+    randomizeGame();
   });
 
   const clearButton = document.querySelector("#clear-button");
@@ -77,7 +77,7 @@ function setupEventListeners() {
   //Used to stop undesired duplicate messages
   let lastCoord;
   canvas.addEventListener("mousedown", (e) => {
-    editState(getMouseCoordinates(canvas, e));
+    placeCell(getMouseCoordinates(canvas, e));
     lastCoord = getMouseCoordinates(canvas, e);
     isHeld = true;
   });
@@ -88,7 +88,7 @@ function setupEventListeners() {
       lastCoord.toString() !== getMouseCoordinates(canvas, e).toString()
     ) {
       lastCoord = getMouseCoordinates(canvas, e);
-      editState(getMouseCoordinates(canvas, e));
+      placeCell(getMouseCoordinates(canvas, e));
     }
   });
 
@@ -97,7 +97,7 @@ function setupEventListeners() {
       isHeld === true &&
       lastCoord.toString() !== getMouseCoordinates(canvas, e).toString()
     ) {
-      editState(getMouseCoordinates(canvas, e));
+      placeCell(getMouseCoordinates(canvas, e));
     }
     isHeld = false;
   });

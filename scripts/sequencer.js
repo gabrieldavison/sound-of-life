@@ -1,4 +1,4 @@
-import { toRender, currentState, gameActive } from "./gameController.js";
+import { board, gameActive } from "./gameController.js";
 import { playStep } from "./soundController.js";
 import { displayStep, clearSequencerCanvas } from "./render.js";
 
@@ -44,9 +44,9 @@ function startSequencer() {
     displayStep(stepNumber);
     //chooses which state to laod notes from
     if (gameActive === true) {
-      collectNotes(toRender, stepNumber);
+      collectNotes(board.toRender, stepNumber);
     } else {
-      collectNotes(currentState, stepNumber);
+      collectNotes(board.currentState, stepNumber);
     }
     stepNumber < 9 ? (stepNumber += 1) : (stepNumber = 0);
     //Loop calls itself recursively so that sequencerSpeed can be checked for changes each iteration
