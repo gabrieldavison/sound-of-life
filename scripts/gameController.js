@@ -1,6 +1,8 @@
 import { randomState, nextState, deadState } from "./game-of-life.js";
 import { renderStateToCanvas } from "./render.js";
 import { GameBoard } from "./GameBoard.js"
+
+//initializes a gameBoard
 const board = new GameBoard(10, 100, 50)
 
 
