@@ -5,7 +5,7 @@ const scaleOptions = [
   ["C4", "D4", "D#4", "G4", "B4", "C5", "D5", "D#5", "G5", "B5"],
   ["C4", "C#4", "E4", "G4", "B4", "C5", "C#5", "E5", "G5", "B5"],
 ];
-let scale = ["C4", "E4", "F#4", "A4", "B4", "C5", "E5", "F#5", "A5", "B5"];
+let scale = scaleOptions[0];
 function changeScale(number) {
   scale = scaleOptions[parseInt(number)];
   console.log(scale);

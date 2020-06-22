@@ -1,4 +1,4 @@
-import { toRender, currentState, width, gameActive } from "./gameController.js";
+import { toRender, currentState, gameActive } from "./gameController.js";
 import { playStep } from "./soundController.js";
 import { displayStep, clearSequencerCanvas } from "./render.js";
 

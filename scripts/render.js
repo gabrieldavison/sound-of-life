@@ -26,6 +26,7 @@ function renderStateToCanvas(state, cellSize) {
   }
 }
 
+//Renders active sequencer Step to canvas
 const stepCounter = document.querySelector("#sequencer-canvas");
 const counterCtx = stepCounter.getContext("2d");
 counterCtx.canvas.width = 100 * stepLength;

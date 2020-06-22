@@ -57,10 +57,10 @@ function clearState() {
   renderStateToCanvas(currentState, cellSize);
 }
 
+let gameActive = false;
+
 //used for stopping / starting game interval
 let intervalID;
-
-let gameActive = false;
 
 function startGame() {
   stopGame();
