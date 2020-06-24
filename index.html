@@ -8,10 +8,66 @@
     <link rel="stylesheet" href="./styles/index.css" />
   </head>
   <body>
+    <div class="more-info-modal hidden">
+      <div class="close-button-container">
+        <button id="close-modal-button">Close</button>
+      </div>
+      <p>
+        Sound of Life is a musical interpretation of
+        <a href="http://https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
+          >Conway's Game of Life</a
+        >
+        . A simplified explanation of the game is that a board consists of a
+        number of 'cells'. These cells are either alive or dead. Each round the
+        state of a cell is decided by three simple rules.
+      </p>
+
+      <ol>
+        <li>
+          Any living cell with two or three living neighbours stays alive.
+        </li>
+        <li>Any dead cell with three live neighbours comes to life.</li>
+        <li>
+          Any live cell with less than 2 living neighbours or more than three
+          living neighbours dies.
+        </li>
+      </ol>
+
+      <p>
+        You can watch this unfold by clicking the Start Game button. The board
+        has been pre-populated with a randomized selection of living and dead
+        cells. You can change the speed at which the game progresses using the
+        controls at the top.
+      </p>
+
+      <p>
+        Clicking Start Sound at the bottom of the screen will start a sequencer
+        that plays back different notes depending on the number of living cells
+        in each section of the board. For more information on how this works see
+        the README on this projects
+        <a href="https://github.com/gabrieldavison/sound-of-life"
+          >Github Page</a
+        >
+        .
+      </p>
+
+      <p>
+        You can show/hide the synthesizers controls using the button at the top
+        of the page. These controls change the timbre and character of the
+        sound. All the audio is produced using a simple FM Synthesizer running
+        into a delay effect.
+      </p>
+
+      <p>
+        For more information/source code check out the
+        <a href="https://github.com/gabrieldavison/sound-of-life">Github Page</a
+        >.
+      </p>
+    </div>
     <div class="content">
       <header>
         <div class="more-info-container">
-          <button>More Info</button>
+          <button id="more-info-button">More Info</button>
         </div>
         <pre>
    _____                       _    ____   __   _      _  __     
@@ -25,7 +81,7 @@
 </pre
         >
       </header>
-      <div class="more-info-modal"></div>
+
       <div class="game-wrapper">
         <div class="game-container">
           <div class="controls-wrapper"></div>

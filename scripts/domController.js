@@ -24,6 +24,22 @@ import {
 //Adds event listeneres to UI elements.
 
 function setupEventListeners() {
+  //Event listeners for showing/hiding more-info modal.
+
+  const moreInfoButton = document.querySelector("#more-info-button");
+  const moreInfoModal = document.querySelector(".more-info-modal");
+  const contentWrapper = document.querySelector(".content");
+  const closeModal = document.querySelector("#close-modal-button");
+  moreInfoButton.addEventListener("click", () => {
+    moreInfoModal.classList.remove("hidden");
+    contentWrapper.classList.add("dimmed");
+  });
+  closeModal.addEventListener("click", () => {
+    moreInfoModal.classList.add("hidden");
+    contentWrapper.classList.remove("dimmed");
+  });
+
+  // Event Listeners for game controls
   const startButton = document.querySelector("#start-button");
   startButton.addEventListener("click", () => {
     stopGame();
@@ -102,6 +118,8 @@ function setupEventListeners() {
     isHeld = false;
   });
 
+  // Event listeners for sequencer controls
+
   const startSeq = document.querySelector("#start-seq");
   startSeq.addEventListener("click", () => {
     startSequencer();
@@ -111,12 +129,6 @@ function setupEventListeners() {
   stopSeq.addEventListener("click", () => {
     stopSequencer();
   });
-
-  // const startAudio = document.querySelector("#start-audio");
-  // startAudio.addEventListener("click", async () => {
-  //   await Tone.start();
-  //   console.log("audio go go");
-  // });
 
   const sequencerSpeed = document.querySelector("#sequencer-speed");
   sequencerSpeed.value = 1000;
