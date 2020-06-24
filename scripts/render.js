@@ -19,7 +19,7 @@ function renderStateToCanvas(state, cellSize) {
     for (let x = 0; x < width; x++) {
       ctx.beginPath();
       if (state[y][x] === 1) {
-        ctx.fillStyle = "#41FF00";
+        ctx.fillStyle = "#80a851";
         ctx.fillRect(x * 10, y * 10, 10, 10);
       }
     }
@@ -34,7 +34,7 @@ counterCtx.canvas.height = 100;
 
 function displayStep(stepNumber) {
   counterCtx.clearRect(0, 0, 1000, 100);
-  counterCtx.fillStyle = "#41FF00";
+  counterCtx.fillStyle = "#4f8f75";
   counterCtx.fillRect(stepNumber * 100, 100, 100, -100);
 }
 

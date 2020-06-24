@@ -9,53 +9,143 @@
   </head>
   <body>
     <div class="content">
-      <div class="controls">
-        <button id="start-button">Start</button>
-        <button id="stop-button" class="hidden">Stop</button>
-        <button id="clear-button">Clear</button>
-        <button id="randomize-button">Randomize</button>
-        <label for="game-speed">Game Speed</label>
-        <input type="number" id="game-speed" placeholder="Speed" min="10" />
-      </div>
-      <canvas id="game-canvas"></canvas>
-      <canvas id="sequencer-canvas"></canvas>
-      <div class="sequencer-controls">
-        <button id="start-seq">StartSeq</button>
-        <button id="stop-seq">stopSeq</button>
-        <button id="start-audio">Start Audio</button>
-        <label for="sequencer-speed">Sequencer Speed</label>
-        <input
-          type="number"
-          id="sequencer-speed"
-          placeholder="Speed"
-          min="10"
-        />
-        <label for="scale">Scale</label>
-        <select id="scale">
-          <option value="0">Lydian</option>
-          <option value="1">Major Pentatonic</option>
-          <option value="2">Dorian</option>
-          <option value="3">Hemitonic</option>
-          <option value="4">Persian</option>
-        </select>
-      </div>
-      <div class="synthesizer-controls">
-        <label for="attack">Attack</label>
-        <input id="attack" type="range" min="0" max="1" step="0.1" />
-        <label for="release">Release</label>
-        <input id="release" type="range" min="0.01" max="2" step="0.1" />
-        <label for="harmonicity">Harmonicity</label
-        ><input id="harmonicity" type="range" min="0.5" max="12" step="0.5" />
-        <label for="mod-index">Modualtion Index</label
-        ><input id="mod-index" type="range" min="0" max="200" step="1" />
-      </div>
-      <div class="delay-controls">
-        <label for="delay-time">Delay Time</label>
-        <input id="delay-time" type="range" min="0" max="1" step="0.1" />
-        <label for="feedback">Feedback</label>
-        <input id="feedback" type="range" min="0" max="1" step="0.1" />
+      <header>
+        <div class="more-info-container">
+          <button>More Info</button>
+        </div>
+        <pre>
+   _____                       _    ____   __   _      _  __     
+  / ____|                     | |  / __ \ / _| | |    (_)/ _|    
+ | (___   ___  _   _ _ __   __| | | |  | | |_  | |     _| |_ ___ 
+  \___ \ / _ \| | | | '_ \ / _` | | |  | |  _| | |    | |  _/ _ \
+  ____) | (_) | |_| | | | | (_| | | |__| | |   | |____| | ||  __/
+ |_____/ \___/ \__,_|_| |_|\__,_|  \____/|_|   |______|_|_| \___|
+                                                                 
+
+</pre
+        >
+      </header>
+      <div class="more-info-modal"></div>
+      <div class="game-wrapper">
+        <div class="game-container">
+          <div class="controls-wrapper"></div>
+          <div class="game-controls">
+            <button id="start-button">Start Game</button>
+            <button id="stop-button" class="">Stop</button>
+            <button id="clear-button">Clear</button>
+            <button id="randomize-button">Randomize</button>
+            <label for="game-speed">Game Speed</label>
+            <input type="number" id="game-speed" placeholder="Speed" min="10" />
+            <button id="control-button">Show/Hide Sound Controls</button>
+          </div>
+          <div class="game-board">
+            <div class="synthesizer-container hidden" id="synth-container">
+              <div class="synthesizer-controls">
+                <div class="control-wrapper">
+                  <label class="vertical-label" for="attack">Attack</label>
+                  <input
+                    id="attack"
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.1"
+                    orient="vertical"
+                  />
+                </div>
+                <div class="control-wrapper">
+                  <label class="vertical-label" for="release">Release</label>
+                  <input
+                    id="release"
+                    type="range"
+                    min="0.01"
+                    max="2"
+                    step="0.1"
+                    orient="vertical"
+                  />
+                </div>
+                <div class="control-wrapper">
+                  <label class="vertical-label" for="harmonicity"
+                    >Harmonicity</label
+                  ><input
+                    id="harmonicity"
+                    type="range"
+                    min="0.5"
+                    max="12"
+                    step="0.5"
+                    orient="vertical"
+                  />
+                </div>
+                <div class="control-wrapper">
+                  <label class="vertical-label" for="mod-index"
+                    >Modualtion Index</label
+                  ><input
+                    id="mod-index"
+                    type="range"
+                    min="0"
+                    max="200"
+                    step="1"
+                    orient="vertical"
+                  />
+                </div>
+
+                <div class="control-wrapper">
+                  <label class="vertical-label" for="delay-time"
+                    >Delay Time</label
+                  >
+                  <input
+                    id="delay-time"
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.1"
+                    orient="vertical"
+                  />
+                </div>
+                <div class="control-wrapper">
+                  <label class="vertical-label" for="feedback">Feedback</label>
+                  <input
+                    id="feedback"
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.1"
+                    orient="vertical"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <canvas id="game-canvas" class="game-canvas"></canvas>
+          </div>
+        </div>
+        <div class="sequencer-container">
+          <div class="canvas-wrapper">
+            <canvas id="sequencer-canvas"></canvas>
+          </div>
+          <div class="sequencer-controls">
+            <button id="start-seq">Start Sound</button>
+            <button id="stop-seq">Stop Sound</button>
+            <!-- <button id="start-audio">Start Audio</button> -->
+            <label for="sequencer-speed">Sequencer Speed</label>
+            <input
+              type="number"
+              id="sequencer-speed"
+              placeholder="Speed"
+              min="10"
+            />
+            <label for="scale">Scale</label>
+            <select id="scale">
+              <option value="0">Lydian</option>
+              <option value="1">Major</option>
+              <option value="2">Dorian</option>
+              <option value="3">Hemitonic</option>
+              <option value="4">Persian</option>
+            </select>
+          </div>
+        </div>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/nexusui@2.0.13/dist/NexusUI.js"></script>
     <script src="https://unpkg.com/tone@latest/build/Tone.js"></script>
     <script src="./scripts/script.js" type="module"></script>
   </body>

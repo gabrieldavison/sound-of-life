@@ -28,20 +28,12 @@ function setupEventListeners() {
   startButton.addEventListener("click", () => {
     stopGame();
     startGame();
-    toggleStartStop();
   });
 
   const stopButton = document.querySelector("#stop-button");
   stopButton.addEventListener("click", () => {
     stopGame();
-    toggleStartStop();
   });
-
-  //toggles the visibility of start or stop button to so only one is visible at a time
-  function toggleStartStop() {
-    startButton.classList.toggle("hidden");
-    stopButton.classList.toggle("hidden");
-  }
 
   const randomizeButton = document.querySelector("#randomize-button");
   randomizeButton.addEventListener("click", () => {
@@ -51,6 +43,14 @@ function setupEventListeners() {
   const clearButton = document.querySelector("#clear-button");
   clearButton.addEventListener("click", () => {
     clearState();
+  });
+
+  const synthControlsButton = document.querySelector("#control-button");
+  const synthControls = document.querySelector("#synth-container");
+
+  synthControlsButton.addEventListener("click", () => {
+    synthControls.classList.toggle("hidden");
+    canvas.classList.toggle("dimmed");
   });
 
   const gameSpeed = document.querySelector("#game-speed");
@@ -112,11 +112,11 @@ function setupEventListeners() {
     stopSequencer();
   });
 
-  const startAudio = document.querySelector("#start-audio");
-  startAudio.addEventListener("click", async () => {
-    await Tone.start();
-    console.log("audio go go");
-  });
+  // const startAudio = document.querySelector("#start-audio");
+  // startAudio.addEventListener("click", async () => {
+  //   await Tone.start();
+  //   console.log("audio go go");
+  // });
 
   const sequencerSpeed = document.querySelector("#sequencer-speed");
   sequencerSpeed.value = 1000;

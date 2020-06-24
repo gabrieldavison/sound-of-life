@@ -1,4 +1,19 @@
-/* Uses border box for box sizing */
+/* 
+Color Palette
+Red - #c52028
+Green - #80a851
+Blue - #4f8f75 
+*/
+
+:root {
+  --red: #c52028;
+  --green: #80a851;
+  --blue: #4f8f75;
+  --grey: #f8fbfa;
+  --dark-grey: #505648;
+}
+
+/* Use border box for box sizing */
 html {
   box-sizing: border-box;
   font-family: "Courier New";
@@ -12,39 +27,19 @@ html {
 
 body {
   text-align: center;
-  background-color: rgb(51, 54, 49);
-  color: #41ff00;
+  background-color: var(--grey);
 }
 
 /* Styles header */
 header {
-  margin-top: 4em;
+  color: var(--red);
 }
 pre {
-  font-size: 0.7em;
+  font-size: 1em;
 }
 .more-info-container {
-  margin-right: 5em;
-  text-align: end;
-}
-.more-info-container a {
-  padding: 0.5em;
-  border: 1px solid #41ff00;
-}
-
-.more-info-container a:hover {
-  background-color: #41ff00;
-  color: rgb(81, 82, 80);
-}
-
-/* styles UI controls */
-button,
-input {
-  padding: 0.5em;
-  border: 0.5px dashed #88dd6c;
-  background-color: rgb(81, 82, 80);
-  color: #41ff00;
-  font-weight: bold;
+  position: fixed;
+  margin: 1em 2em;
 }
 
 /* removes spinner arrows from number inputs */
@@ -57,51 +52,169 @@ input[type="number"] {
   -moz-appearance: textfield; /* Firefox */
 }
 
-input {
+/* Global button styles */
+
+button {
+  display: inline-block;
   border: none;
-  background-color: rgb(81, 82, 80);
-  color: #41ff00;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+/* Removes border on focus */
+button:focus {
+  border: none;
+  outline: none;
 }
 
-#start-button,
-#stop-button {
-  width: 10em;
+.game-controls input,
+.sequencer-controls input {
+  border-radius: 0px;
+  border-style: solid;
+  padding: 0.5rem 1rem;
+  width: 7em;
+  text-align: center;
+  color: var(--dark-grey);
 }
 
-/* Styles game board */
-#game-canvas,
-#sequencer-canvas {
-  margin-top: 3em;
-  border: 1px #41ff00 solid;
-}
-
-/* Styles modal that contains further info */
-.modal {
-  position: fixed;
-  width: 50%;
-  top: 20%;
-  left: 25%;
+/* Styles game */
+.game-wrapper {
+  width: 1000px;
   margin: auto;
-  padding-bottom: 2em;
-  opacity: 0.6;
-  background-color: #41ff00;
-  color: rgb(81, 82, 80);
+  color: var(--green);
 }
 
-.close-container {
-  text-align: right;
-  margin-top: 1.5em;
+.game-controls {
+  width: 100%;
+  margin: 0;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  text-align: center;
+  color: var(--dark-grey);
 }
-.close-container a {
-  margin: 1.5em 1.5em 0 0;
-  padding: 0.5em;
-  border: 1px solid rgb(81, 82, 80);
+.game-controls input {
+  border: 1px solid var(--green);
 }
-#close-button:hover {
-  background-color: rgb(81, 82, 80);
-  color: #41ff00;
+.game-controls label {
+  color: var(--dark-grey);
+}
+
+.game-controls button {
+  background-color: var(--grey);
+  border: 1px solid var(--green);
+  font-weight: bold;
+  color: var(--dark-grey);
+}
+
+.game-controls button:hover {
+  background-color: var(--green);
+  color: var(--grey);
+}
+
+#game-canvas {
+  border: 3px solid var(--green);
+}
+
+/* styles sequencer  */
+
+#sequencer-canvas {
+  border: 3px solid var(--blue);
+  margin-bottom: 0;
+  display: block;
+}
+
+.sequencer-controls {
+  margin-top: 0.5em;
+  text-align: center;
+  color: var(--dark-grey);
+}
+.sequencer-controls input {
+  border: 1px solid var(--blue);
+}
+.sequencer-controls label {
+  color: var(--dark-grey);
+}
+
+.sequencer-controls button {
+  font-weight: bold;
+  margin: 0;
+  background-color: var(--grey);
+  border: 1px solid var(--blue);
+
+  color: var(--dark-grey);
+}
+
+.sequencer-controls button:hover {
+  background-color: var(--blue);
+  color: var(--grey);
+}
+
+.sequencer-controls select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  padding: 0;
+  background-color: var(--grey);
+  border: 1px solid var(--blue);
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+/* Styles synthesizer controls */
+
+.synthesizer-controls {
+  padding: 2em;
+  color: var(--red);
+}
+.synthesizer-controls label {
+  font-size: 1.5em;
+}
+.vertical-label {
+  writing-mode: sideways-lr;
+  color: var(--red);
+}
+
+.control-wrapper {
+  display: inline;
+  padding: 2em;
+}
+
+/* styles synthesizer controls modal */
+
+.game-board {
+  position: relative;
+}
+.synthesizer-controls {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding-top: 8em;
+  z-index: 2;
+}
+.synthesizer-container {
+  visibility: visible;
+  opacity: 100%;
+  transition: visibility 0.1s linear, opacity 0.1s linear;
 }
 
 .hidden {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.2s linear, opacity 0.2s linear;
+}
+
+.game-canvas {
+  opacity: 100%;
+  transition: opacity 0.2s linear;
+}
+
+.dimmed {
+  opacity: 20%;
+  transition: opacity 0.2s linear;
+  z-index: -1;
 }

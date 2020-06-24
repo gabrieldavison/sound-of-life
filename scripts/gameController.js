@@ -1,4 +1,4 @@
-import { randomState, nextState, deadState } from "./game-of-life.js";
+import { randomState, nextState, deadState } from "./gameOfLifeLogic.js";
 import { renderStateToCanvas } from "./render.js";
 import { GameBoard } from "./GameBoard.js"
 
@@ -84,7 +84,7 @@ function stopGame() {
 }
 
 //Used to first render canvas when page loads
-function setupCanvas() {
+function initialRender() {
   renderStateToCanvas(board.currentState, board.cellSize);
 }
 
@@ -97,7 +97,7 @@ export {
   placeCell,
   updateGameSpeed,
   clearState,
-  setupCanvas,
+  initialRender,
   board,
   gameActive,
 };
