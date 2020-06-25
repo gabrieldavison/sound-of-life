@@ -1,6 +1,8 @@
-[CLICK HERE TO TRY OUT A LIVE DEMO](https://gabrieldavison.github.io/sound-of-life/)
+#Sound of Life
 
 [![Video Link Screenshot](./docs/screenshots/video-screenshot.png)](https://vimeo.com/432480485)
+
+[Click here to try out a live demo](https://gabrieldavison.github.io/sound-of-life/) or click the video below for a demonstration.
 
 ## Conway's Game of Life
 
