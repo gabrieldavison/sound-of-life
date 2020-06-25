@@ -1,3 +1,7 @@
+#[LINK TO LIVE DEMO](https://gabrieldavison.github.io/sound-of-life/)
+
+[![Video Link Screenshot](./docs/screenshots/video-screenshot.png)](https://vimeo.com/432480485)
+
 ## Conway's Game of Life
 
 ![Game board screenshot](./docs/screenshots/game-screenshot.png)
