@@ -1,6 +1,6 @@
 ## Conway's Game of Life
 
-![Game board screenshot](./docs/screenshots/game-screenshot.png | width=200)
+![Game board screenshot](./docs/screenshots/game-screenshot.png)
 
 Sound of Life is a musical interpretation of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life). The game consists of a 2D board made up cells that are either 'alive' or 'dead'. Each round the state of a cell is decided by three simple rules.
 
