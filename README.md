@@ -2,7 +2,7 @@
 
 [![Video Link Screenshot](./docs/screenshots/video-screenshot.png)](https://vimeo.com/432480485)
 
-[Click here to try out a live demo](https://gabrieldavison.github.io/sound-of-life/) or click the video below for a demonstration.
+[Click here to try out a live demo](https://gabrieldavison.github.io/sound-of-life/) or click the video above for a demonstration.
 
 ## Conway's Game of Life
 
