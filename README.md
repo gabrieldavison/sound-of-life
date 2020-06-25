@@ -1,6 +1,6 @@
 ## Conway's Game of Life
 
-[Game board screenshot](docs/screenshots/game-screenshot.png | width=200)
+[Game board screenshot](./docs/screenshots/game-screenshot.png | width=200)
 
 Sound of Life is a musical interpretation of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life). The game consists of a 2D board made up cells that are either 'alive' or 'dead'. Each round the state of a cell is decided by three simple rules.
 
@@ -16,7 +16,7 @@ Living cells can be placed or removed by clicking on the board. A random selecti
 
 ## The Sequencer
 
-[Sequencer screenshot](docs/screenshots/sequencer-screenshot.png | width=200)
+[Sequencer screenshot](./docs/screenshots/sequencer-screenshot.png | width=200)
 
 In addition to the implementation of the Game of Life, Sound of Life features a musical sequencer that plays back different notes depending on the number of living cells in the game and their location on the board.
 
@@ -26,7 +26,7 @@ This leads to some interesting generative melodies that change gradually over ti
 
 ## The Synthesizer
 
-[Synthesizer screenshot](docs/screenshots/synthesizer-screenshot.png | width=200)
+[Synthesizer screenshot](./docs/screenshots/synthesizer-screenshot.png | width=200)
 
 All of the sound is generated using a simple two operator FM synthesizer that is fed into a delay effect. The parameters of the synthesizer can be viewed by clicking the Show/Hide Sound Controls button above the game board. Here is a quick breakdown of how each slider effects the sound.
 
