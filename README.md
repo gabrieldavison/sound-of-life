@@ -1,4 +1,4 @@
-[Click here for a live demo.](https://gabrieldavison.github.io/sound-of-life/)
+[CLICK HERE TO TRY OUT A LIVE DEMO](https://gabrieldavison.github.io/sound-of-life/)
 
 [![Video Link Screenshot](./docs/screenshots/video-screenshot.png)](https://vimeo.com/432480485)
 
