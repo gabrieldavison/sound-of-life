@@ -193,20 +193,25 @@ button:focus {
 /* Styles synthesizer controls */
 
 .synthesizer-controls {
+  display: grid;
+  grid-template-columns: repeat(6, 150px);
+  justify-items: center;
   padding: 2em;
   color: var(--red);
 }
 .synthesizer-controls label {
   font-size: 1.5em;
-}
-.vertical-label {
-  writing-mode: sideways-lr;
-  color: var(--red);
+  display: inline-block;
+  margin: 1em;
 }
 
 .control-wrapper {
-  display: inline;
-  padding: 2em;
+  margin-top: 100px;
+  display: inline-block;
+  transform: rotate(270deg);
+  transform-origin: 50% 80%;
+  height: 50px;
+  width: 250px;
 }
 
 /* styles synthesizer controls modal */
@@ -239,7 +244,7 @@ button:focus {
 }
 
 .dimmed {
-  opacity: 20%;
+  opacity: 10%;
   transition: opacity 0.2s linear;
   z-index: -1;
 }
