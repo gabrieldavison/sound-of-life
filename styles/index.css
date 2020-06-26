@@ -1,10 +1,4 @@
-/* 
-Color Palette
-Red - #c52028
-Green - #80a851
-Blue - #4f8f75 
-*/
-
+/* Sets up css variables */
 :root {
   --red: #c52028;
   --green: #80a851;
@@ -49,15 +43,15 @@ pre {
 /* Styles more info modal */
 
 .more-info-modal {
-  color: var(--red);
-  font-weight: regular;
   position: fixed;
-  width: 960px;
-  margin: auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
+  width: 960px;
+  margin: auto;
+  font-weight: regular;
+  color: var(--red);
 }
 
 .more-info-modal button {
@@ -100,10 +94,10 @@ button:focus {
 
 .game-controls input,
 .sequencer-controls input {
-  border-radius: 0px;
-  border-style: solid;
   padding: 0.5rem 1rem;
   width: 7em;
+  border-radius: 0px;
+  border-style: solid;
   text-align: center;
   color: var(--dark-grey);
 }
@@ -131,9 +125,9 @@ button:focus {
 }
 
 .game-controls button {
-  background-color: var(--grey);
   border: 1px solid var(--green);
   font-weight: bold;
+  background-color: var(--grey);
   color: var(--dark-grey);
 }
 
@@ -149,9 +143,9 @@ button:focus {
 /* styles sequencer  */
 
 #sequencer-canvas {
+  display: block;
   border: 3px solid var(--blue);
   margin-bottom: 0;
-  display: block;
 }
 
 .sequencer-controls {
@@ -167,11 +161,10 @@ button:focus {
 }
 
 .sequencer-controls button {
-  font-weight: bold;
   margin: 0;
-  background-color: var(--grey);
   border: 1px solid var(--blue);
-
+  font-weight: bold;
+  background-color: var(--grey);
   color: var(--dark-grey);
 }
 
@@ -184,10 +177,10 @@ button:focus {
   -moz-appearance: none;
   -webkit-appearance: none;
   padding: 0;
-  background-color: var(--grey);
   border: 1px solid var(--blue);
   padding: 0.5rem 1rem;
   text-align: center;
+  background-color: var(--grey);
 }
 
 /* Styles synthesizer controls */
@@ -206,10 +199,10 @@ button:focus {
 }
 
 .control-wrapper {
-  margin-top: 100px;
   display: inline-block;
   transform: rotate(270deg);
   transform-origin: 50% 80%;
+  margin-top: 100px;
   height: 50px;
   width: 250px;
 }
