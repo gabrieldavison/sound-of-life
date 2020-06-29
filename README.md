@@ -38,7 +38,7 @@ All of the sound is generated using a simple two operator FM synthesizer that is
 
 ### Attack:
 
-This is the initial stage of the synthesizers volume envelope. A fast attack time will give a stacatto sound (think harpsichord) and a slow attack will give a softer more gradual increase in volume (think softly played violin).
+This is the initial stage of the synthesizers volume envelope. A fast attack time will give a staccato sound (think harpsichord) and a slow attack will give a softer more gradual increase in volume (think softly played violin).
 
 ### Release:
 
@@ -46,7 +46,7 @@ This is the second stage of the synthesizers volume envelope. A fast release tim
 
 ### Harmonicity and Modulation Index
 
-To understand what harmonicity and modulation index are doing you first need to understand how an FM synthesizer works and this is a topic all on its own. You don't need to understand how they work if you just want to make interesting sounds. These two controls interact with eachother a lot and affect how bright or harsh the sound will be. If you are interested in understanding how an FM synthesizer works in more detail then [this video](https://www.youtube.com/watch?v=vvBl3YUBUyY) is a great place to start and gives a much better explanation than I could.
+To understand what harmonicity and modulation index are doing you first need to understand how an FM synthesizer works and this is a topic all on its own. You don't need to understand how they work if you just want to make interesting sounds. These two controls interact with each other a lot and affect how bright or harsh the sound will be. If you are interested in understanding how an FM synthesizer works in more detail then [this video](https://www.youtube.com/watch?v=vvBl3YUBUyY) is a great place to start and gives a much better explanation than I could.
 
 ### Delay Time
 
