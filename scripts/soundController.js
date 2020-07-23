@@ -11,7 +11,7 @@ function changeScale(number) {
   console.log(scale);
 }
 
-const synth = new Tone.PolySynth(4, Tone.FMSynth, {
+const synth = new Tone.PolySynth(Tone.FMSynth, {
   modulationIndex: 10,
   harmonicity: 3,
   envelope: {
